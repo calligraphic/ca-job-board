@@ -186,7 +186,10 @@ module.exports = {
               {
                 loader: require.resolve('css-loader'),
                 options: {
-                  importLoaders: 1,
+                  // how many loaders before css-loader should be applied to @imported resources
+                  // 0 => no loaders (default); 1 => postcss-loader; 2 => sass-loader, postcss-loader
+                  importLoaders: 2,
+                  sourceMap: true,
                 },
               },
               {
@@ -207,6 +210,17 @@ module.exports = {
                       flexbox: 'no-2009',
                     }),
                   ],
+                  sourceMap: true,
+                },
+              },
+              {
+                loader: require.resolve('sass-loader'),
+                options: {
+                  includePaths: [
+                    path.resolve(paths.appSrc, 'styles'),
+                    path.resolve(paths.appNodeModules, 'bootstrap-sass', 'assets')
+                  ],
+                  sourceMap: true,
                 },
               },
             ],
