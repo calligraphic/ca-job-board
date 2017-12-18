@@ -1,0 +1,26 @@
+sudo: false
+
+language: node_js
+
+node_js:
+  - 4
+  - 6
+  - 8
+
+cache:
+  directories:
+    - $HOME/.npm
+
+before_install:
+  - npm install coveralls
+  - git config --global user.email "kevin.brown@calligraphic.design"
+  - git config --global user.name "Kevin Brown"
+
+script: "npm run test:coverage"
+
+after_success:
+  - cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
+
+branches:
+  only:
+    - master
