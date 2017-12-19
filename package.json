@@ -42,7 +42,9 @@
     "eslint-plugin-react": "7.4.0",
     "extract-text-webpack-plugin": "3.0.2",
     "file-loader": "1.1.5",
+    "flow-bin": "^0.61.0",
     "fs-extra": "3.0.1",
+    "gh-pages": "^1.1.0",
     "html-webpack-plugin": "2.29.0",
     "husky": "^0.14.3",
     "jest": "20.0.4",
@@ -89,6 +91,9 @@
     "start": "npm-run-all -p watch-css start-js",
     "build-js": "node scripts/build.js",
     "build": "npm-run-all build-css build-js",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -b master -d build",
+    "flow": "flow",
     "test": "node scripts/test.js --env=jsdom"
   },
   "jest": {
@@ -146,5 +151,5 @@
   "bugs": {
     "url": "https://github.com/calligraphic/ca-job-board/issues"
   },
-  "homepage": "https://github.com/calligraphic/ca-job-board/job-board-primer#readme"
+  "homepage": "https://calligraphic.github.io/ca-job-board"
 }
