@@ -1,0 +1,14 @@
+[ignore]
+.*/build/.*
+.*/coverage/.*
+
+[include]
+
+[libs]
+./lib/flow
+
+[lints]
+
+[options]
+
+[strict]
