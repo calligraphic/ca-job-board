@@ -15,7 +15,9 @@ process.on('unhandledRejection', err => {
 // Ensure environment variables are read.
 require('../config/env');
 
-const jest = require('jest');
+// changed from const to var to stop error about token jest being already declared
+var jest = require('jest');
+
 const argv = process.argv.slice(2);
 
 // Watch unless on CI or in coverage mode
