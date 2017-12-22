@@ -95,7 +95,8 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -b master -d build",
     "flow": "flow",
-    "test": "node scripts/test.js --env=jsdom --config=./config/jest.config.js",
+    "test": "node scripts/test.js --env=jsdom",
+    "test:debug": "node scripts/test.js --inspect-brk test --runInBand --env=jsdom",
     "analyze": "source-map-explorer build/static/js/main.*"
   },
   "babel": {
@@ -119,5 +120,9 @@
   "bugs": {
     "url": "https://github.com/calligraphic/ca-job-board/issues"
   },
-  "homepage": "https://calligraphic.github.io/ca-job-board"
+  "homepage": "https://calligraphic.github.io/ca-job-board",
+  "engines" : {
+    "node" : ">=8.0.0",
+    "npm" : ">=5.0.0"
+  }
 }
