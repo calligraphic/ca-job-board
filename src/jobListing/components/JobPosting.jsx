@@ -1,3 +1,5 @@
+// TODO: Enforce 'use strict';
+
 import React from 'react';
 import PropTypes from 'prop-types';
 import PureComponent from 'react-pure-render/component';

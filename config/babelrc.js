@@ -67,6 +67,8 @@ if (env === 'test') {
           targets: {
             node: 'current',
           },
+          // Jest requires transpilation of ES2015 modules for testing
+          modules: true,
         },
       ],
       // Stage 2 Proposals
