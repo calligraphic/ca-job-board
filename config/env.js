@@ -1,5 +1,7 @@
 'use strict';
 
+// TODO: Some of the env loading code could be moved to using `dotenv` module
+
 const fs = require('fs');
 const path = require('path');
 const paths = require('./paths');

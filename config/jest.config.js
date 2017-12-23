@@ -18,6 +18,7 @@ module.exports = {
     '!src/**/*.stories.js',
     "!src/**/stories/*",
   ],
+  coverageDirectory: ".coverage",
   setupFiles: [
     resolve('config/polyfills.js'),
   ],
