@@ -85,6 +85,7 @@
     "enzyme": "^3.2.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "jest-enzyme": "^4.0.1",
+    "nsp": "^3.1.0",
     "prettier": "^1.9.2",
     "react-test-renderer": "^16.2.0"
   },
@@ -104,7 +105,8 @@
     "test:debug": "node scripts/test.js --inspect-brk test --runInBand --env=jsdom",
     "analyze": "source-map-explorer build/static/js/main.*",
     "format": "prettier --write '**/*.{js,css,md}'",
-    "posttest": "npm run format"
+    "posttest": "npm run format",
+    "security": "nsp check"
   },
   "babel": {
     "presets": [
