@@ -4,11 +4,7 @@
   "license": "MIT",
   "description": "A Job Board implemented in React",
   "author": "Kevin Brown",
-  "keywords": [
-    "redux",
-    "orm",
-    "redux-orm"
-  ],
+  "keywords": ["redux", "orm", "redux-orm"],
   "dependencies": {
     "autoprefixer": "7.1.6",
     "babel-core": "6.26.0",
@@ -87,40 +83,42 @@
     "jest-enzyme": "^4.0.1",
     "nsp": "^3.1.0",
     "prettier": "^1.9.2",
-    "react-test-renderer": "^16.2.0"
+    "react-test-renderer": "^16.2.0",
+    "stylelint": "^8.4.0",
+    "stylelint-config-standard": "^18.0.0",
+    "stylelint-scss": "^2.2.0"
   },
   "scripts": {
     "precommit": "lint-staged",
-    "build-css": "node-sass-chokidar --include-path ./src/styles/ --include-path ./node_modules/bootstrap-sass/assets src/ -o public",
-    "watch-css": "npm run build-css && node-sass-chokidar --include-path ./src/styles/ --include-path ./node_modules/bootstrap-sass/assets src/ -o public --watch --recursive",
-    "start-js": "node scripts/start.js",
-    "start": "npm-run-all -p watch-css start-js",
-    "build-js": "node scripts/build.js",
-    "build": "npm-run-all build-css build-js",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -b master -d build",
-    "flow": "flow",
-    "test": "node scripts/test.js --env=jsdom",
-    "test:coverage": "node scripts/test.js --env=jsdom --coverage",
-    "test:debug": "node scripts/test.js --inspect-brk test --runInBand --env=jsdom",
-    "analyze": "source-map-explorer build/static/js/main.*",
-    "format": "prettier --write '**/*.{js,css,md}'",
+    "css:lint": "stylelint '**/*.scss'; exit 0",
+    "css:build":
+      "node-sass-chokidar --include-path ./src/styles/ src/ -o public",
+    "css:watch":
+      "npm run css:build && node-sass-chokidar --include-path ./src/styles/ src/ -o public --watch --recursive",
+    "start:script": "node scripts/start.js",
+    "start": "npm-run-all -p css:watch start:script",
+    "build:script": "node scripts/build.js",
+    "build": "npm-run-all css:build build:script",
+    "test:script": "node scripts/test.js --env=jsdom",
+    "test:flow": "flow",
+    "test:coverage": "npm run test:script --coverage",
+    "test:debug": "npm run test:script --inspect-brk test --runInBand",
+    "pretest": "npm run css:lint",
     "posttest": "npm run format",
+    "test": "npm run test:script",
+    "publish": "gh-pages -b master -d build",
+    "analyze": "source-map-explorer build/static/js/main.*",
+    "format": "prettier --write '**/*.{js,jsx,scss,css}'",
     "security": "nsp check"
   },
   "babel": {
-    "presets": [
-      "./config/babelrc.js"
-    ]
+    "presets": ["./config/babelrc.js"]
   },
   "eslintConfig": {
     "extends": "./config/eslintrc.js"
   },
   "lint-staged": {
-    "src/**/*.{js,jsx,json,css}": [
-      "prettier --write",
-      "git add"
-    ]
+    "src/**/*.{js,jsx,json,scss,css}": ["npm run format", "git add"]
   },
   "repository": {
     "type": "git",

@@ -1,9 +1,12 @@
-/* Variables */
-
+/**
+ * /* Variables
+ *
+ * @format
+ */
 
 /* Styles */
 body {
+  // TODO: Update vendor-prefixed properties if CSS font-smooth is standardized
   -webkit-font-smoothing: antialiased;
   -moz-font-smoothing: antialiased;
-  font-smoothing: antialiased;
 }

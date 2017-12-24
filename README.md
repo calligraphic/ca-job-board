@@ -6,3 +6,6 @@ Calligraphic Job Board
 
 
 [![Codecov](https://codecov.io/gh/calligraphic/ca-job-board/branch/master/graph/badge.svg)](https://codecov.io/gh/calligraphic/ca-job-board)
+
+
+[![Build Status](https://travis-ci.org/calligraphic/ca-job-board.svg)](https://travis-ci.org/calligraphic/ca-job-board)
