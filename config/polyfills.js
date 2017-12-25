@@ -1,5 +1,10 @@
 'use strict';
 
+/*
+* Generator polyfills being provided by babel-plugin-transform-regenerator,
+* or babel-transform-runtime when it is turned on.  No Array.from polyfill here.
+*/
+
 if (typeof Promise === 'undefined') {
   // Rejection tracking prevents a common issue where React gets into an
   // inconsistent state due to an error, but it gets swallowed by a Promise,

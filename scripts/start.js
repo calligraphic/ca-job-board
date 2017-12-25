@@ -1,3 +1,5 @@
+/** @format */
+
 'use strict';
 
 // Do this as the first thing so that any code reading it knows the right env.
@@ -26,7 +28,7 @@ const {
   choosePort,
   createCompiler,
   prepareProxy,
-  prepareUrls,
+  prepareUrls
 } = require('react-dev-utils/WebpackDevServerUtils');
 
 // local includes
@@ -71,7 +73,7 @@ choosePort(HOST, DEFAULT_PORT)
       proxyConfig,
       urls.lanUrlForConfig
     );
-    
+
     const devServer = new WebpackDevServer(compiler, serverConfig);
     // Launch WebpackDevServer.
     devServer.listen(port, HOST, err => {

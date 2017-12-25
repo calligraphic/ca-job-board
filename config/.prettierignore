@@ -1,0 +1,18 @@
+# Don't pretty print Bootstrap SCSS source
+/src/styles/bootstrap
+
+# Don't pretty print config files
+/config
+
+# Don't pretty print coverage reports
+/.coverage
+
+# Don't pretty print build artifacts
+/build
+
+# Don't pretty print static files
+/public
+/public/styles/styles.css
+
+# Don't pretty print library files like flow types
+/lib

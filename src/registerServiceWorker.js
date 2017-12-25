@@ -1,3 +1,12 @@
+/** @format */
+
+// Could use offline-plugin:
+// This plugin is intended to provide an offline experience for webpack projects.
+// It uses ServiceWorker, and AppCache as a fallback under the hood. Simply include
+// this plugin in your webpack.config, and the accompanying runtime in your client
+// script, and your project will become offline ready by caching all (or some) of
+// the webpack output assets.
+
 // In production, we register a service worker to serve assets from local cache.
 
 // This lets the app load faster on subsequent visits in production, and gives

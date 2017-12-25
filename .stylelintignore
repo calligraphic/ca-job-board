@@ -1,0 +1,2 @@
+# Don't stylelint Bootstrap SCSS source
+/src/styles/bootstrap

@@ -1,0 +1,20 @@
+sudo: false
+language: node_js
+node_js:
+  - 6
+  - 8
+cache:
+  directories:
+    - node_modules
+before_install:
+  - git config --global user.email "kevin.brown@calligraphic.design"
+  - git config --global user.name "Kevin Brown"
+script:
+  - npm run build
+  - npm test
+  - 'npm run test:coverage'
+branches:
+  only:
+    - master
+after_success:
+  - './node_modules/.bin/codecov --token=:d58fbc73-98c4-4b07-a64e-0d64e952ab38'

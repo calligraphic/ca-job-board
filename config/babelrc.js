@@ -3,8 +3,7 @@
 const plugins = [
   // class { handleClick = () => { } }
   require.resolve('babel-plugin-transform-class-properties'),
-  // The following two plugins use Object.assign directly, instead of Babel's
-  // extends helper. Note that this assumes `Object.assign` is available.
+
   // { ...todo, completed: true }
   [
     require.resolve('babel-plugin-transform-object-rest-spread'),
@@ -12,6 +11,7 @@ const plugins = [
       useBuiltIns: true,
     },
   ],
+
   // Transforms JSX
   [
     require.resolve('babel-plugin-transform-react-jsx'),
@@ -19,6 +19,7 @@ const plugins = [
       useBuiltIns: true,
     },
   ],
+
   // Polyfills the runtime needed for async/await and generators
   [
     require.resolve('babel-plugin-transform-runtime'),
@@ -33,7 +34,7 @@ const plugins = [
 var env = process.env.BABEL_ENV || process.env.NODE_ENV;
 if (env !== 'development' && env !== 'test' && env !== 'production') {
   throw new Error(
-    'Using `babel-preset-react-app` requires that you specify `NODE_ENV` or ' +
+    'Using `ca-job-board` requires that you specify `NODE_ENV` or ' +
       '`BABEL_ENV` environment variables. Valid values are "development", ' +
       '"test", and "production". Instead, received: ' +
       JSON.stringify(env) +
@@ -66,6 +67,8 @@ if (env === 'test') {
           targets: {
             node: 'current',
           },
+          // Jest requires transpilation of ES2015 modules for testing
+          modules: commonjs,
         },
       ],
       // Stage 2 Proposals
@@ -101,6 +104,7 @@ if (env === 'test') {
       // JSX, Flow
       require.resolve('babel-preset-react'),
     ],
+
     plugins: plugins.concat([
       // function* () { yield 42; yield 43; }
       [
@@ -110,6 +114,25 @@ if (env === 'test') {
           async: false,
         },
       ],
+
+      // TODO: Add following two plugins to remove thunks that Babel leaves
+      // on each page, and use its own runtime instead (like _extend).
+      // babel-plugin-transform-runtime for dev dependency
+      // babel-runtime as production dependency
+      /*
+      [
+        require.resolve('transform-runtime'),
+        {
+          'helpers': false,
+          'polyfill': false,
+          'regenerator': true,
+          'moduleName': "babel-runtime"
+        }
+      ],
+      */
+
+      // Ho
+
       // Adds syntax support for import()
       require.resolve('babel-plugin-syntax-dynamic-import'),
     ]),

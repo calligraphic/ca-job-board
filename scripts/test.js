@@ -1,4 +1,13 @@
+/** @format */
+
 'use strict';
+
+const path = require('path');
+const chalk = require('chalk');
+
+// project files to include
+const paths = require('../config/paths');
+const jestConfig = require('../config/jest.config.js');
 
 // Do this as the first thing so that any code reading it knows the right env.
 process.env.BABEL_ENV = 'test';
@@ -15,8 +24,7 @@ process.on('unhandledRejection', err => {
 // Ensure environment variables are read.
 require('../config/env');
 
-// changed from const to var to stop error about token jest being already declared
-var jest = require('jest');
+const jest = require('jest');
 
 const argv = process.argv.slice(2);
 
@@ -24,5 +32,16 @@ const argv = process.argv.slice(2);
 if (!process.env.CI && argv.indexOf('--coverage') < 0) {
   argv.push('--watch');
 }
+
+// Give usage hints if test called with debug options
+if (argv.indexOf('--inspect-brk') > -1) {
+  console.log(chalk.green('To debug a test, add the statement: debugger;'));
+  console.log(chalk.green('to the test file. Open about:inspect in Chrome.'));
+  console.log(chalk.green('Select inspect on your process and a breakpoint'));
+  console.log(chalk.green('will be set at the first line of the script.'));
+  console.log(chalk.green('Continue execution by hitting the "Play" button.'));
+}
+
+argv.push('--config', JSON.stringify(jestConfig));
 
 jest.run(argv);
