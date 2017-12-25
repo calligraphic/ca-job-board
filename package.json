@@ -117,7 +117,7 @@
     "format": "prettier --ignore-path ./config/.prettierignore --config ./config/.prettierrc --write '**/*.{js,jsx,scss,css}'",
     "security": "nsp check",
     "storybook": "start-storybook -p 9001 -c ./config/.storybook",
-    "storybook:build": "build-storybook"
+    "storybook:build": "build-storybook -c ./config/.storybook -o ./docs"
   },
   "babel": {
     "presets": [

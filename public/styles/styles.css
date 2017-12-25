@@ -1,12 +1,15 @@
 @charset "UTF-8";
-/*
- *
+/**
+ * /*
+ * 
  * Entry file for all stylings
  *
+ * @format
  */
 /*
  * Entry poing for Bootstrap SCSS
  */
+/** @format */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 html {
   font-family: sans-serif;
@@ -5820,16 +5823,20 @@ button.close {
 /*
  * Set global styles in global.scss
  */
-/* Variables */
+/**
+ * /* Variables
+ *
+ * @format
+ */
 /* Styles */
 body {
   -webkit-font-smoothing: antialiased;
-  -moz-font-smoothing: antialiased;
-  font-smoothing: antialiased; }
+  -moz-font-smoothing: antialiased; }
 
 /*
  * Override Bootstrap variables in bootstrap-variables
  */
+/** @format */
 /*
  * Override Bootstrap variables here and/or import a
  * Bootstrap template file
