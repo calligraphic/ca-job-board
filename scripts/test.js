@@ -1,3 +1,5 @@
+/** @format */
+
 'use strict';
 
 const path = require('path');
@@ -40,9 +42,6 @@ if (argv.indexOf('--inspect-brk') > -1) {
   console.log(chalk.green('Continue execution by hitting the "Play" button.'));
 }
 
-argv.push(
-  '--config',
-  JSON.stringify(jestConfig),
-);
+argv.push('--config', JSON.stringify(jestConfig));
 
 jest.run(argv);

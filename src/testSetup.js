@@ -1,3 +1,5 @@
+/** @format */
+
 // TODO: turn on 'use strict';
 
 /*

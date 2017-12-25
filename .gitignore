@@ -7,6 +7,11 @@
 # production
 /build
 
+# style files compiled for static consumption
+/public
+/public/styles
+/public/styles/styles.css
+
 # environment
 .env.local
 .env.development.local

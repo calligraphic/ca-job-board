@@ -68,7 +68,7 @@ if (env === 'test') {
             node: 'current',
           },
           // Jest requires transpilation of ES2015 modules for testing
-          modules: true,
+          modules: commonjs,
         },
       ],
       // Stage 2 Proposals
@@ -121,7 +121,7 @@ if (env === 'test') {
       // babel-runtime as production dependency
       /*
       [
-        require.resolve('transform-runtime'), 
+        require.resolve('transform-runtime'),
         {
           'helpers': false,
           'polyfill': false,
@@ -132,7 +132,7 @@ if (env === 'test') {
       */
 
       // Ho
- 
+
       // Adds syntax support for import()
       require.resolve('babel-plugin-syntax-dynamic-import'),
     ]),

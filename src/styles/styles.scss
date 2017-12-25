@@ -1,20 +1,22 @@
-/*
- *
+/**
+ * /*
+ * 
  * Entry file for all stylings
  *
+ * @format
  */
 
 /*
  * Entry poing for Bootstrap SCSS
  */
-@import "bootstrap.scss";
+@import 'bootstrap.scss';
 
 /*
  * Set global styles in global.scss
  */
-@import "global.scss";
+@import 'global.scss';
 
 /*
  * Override Bootstrap variables in bootstrap-variables
  */
-@import "bootstrap-variables.scss";
+@import 'bootstrap-variables.scss';

@@ -4,7 +4,11 @@
   "license": "MIT",
   "description": "A Job Board implemented in React",
   "author": "Kevin Brown",
-  "keywords": ["redux", "orm", "redux-orm"],
+  "keywords": [
+    "redux",
+    "orm",
+    "redux-orm"
+  ],
   "dependencies": {
     "autoprefixer": "7.1.6",
     "babel-core": "6.26.0",
@@ -34,7 +38,6 @@
     "eslint-plugin-import": "2.8.0",
     "eslint-plugin-jsx-a11y": "5.1.1",
     "eslint-plugin-react": "7.4.0",
-    "extract-text-webpack-plugin": "3.0.2",
     "file-loader": "1.1.5",
     "flow-bin": "^0.61.0",
     "fs-extra": "3.0.1",
@@ -77,24 +80,27 @@
     "whatwg-fetch": "2.0.3"
   },
   "devDependencies": {
+    "@storybook/react": "^3.2.19",
     "codecov": "^3.0.0",
     "enzyme": "^3.2.0",
     "enzyme-adapter-react-16": "^1.1.1",
+    "extract-text-webpack-plugin": "^3.0.2",
     "jest-enzyme": "^4.0.1",
+    "node-sass": "^4.7.2",
     "nsp": "^3.1.0",
     "prettier": "^1.9.2",
     "react-test-renderer": "^16.2.0",
     "stylelint": "^8.4.0",
+    "stylelint-config-sass-guidelines": "^4.0.1",
     "stylelint-config-standard": "^18.0.0",
+    "stylelint-order": "^0.8.0",
     "stylelint-scss": "^2.2.0"
   },
   "scripts": {
     "precommit": "lint-staged",
     "css:lint": "stylelint '**/*.scss'; exit 0",
-    "css:build":
-      "node-sass-chokidar --include-path ./src/styles/ src/ -o public",
-    "css:watch":
-      "npm run css:build && node-sass-chokidar --include-path ./src/styles/ src/ -o public --watch --recursive",
+    "css:build": "node-sass-chokidar --include-path ./src/styles/ src/ -o public",
+    "css:watch": "npm run css:build && node-sass-chokidar --include-path ./src/styles/ src/ -o public --watch --recursive",
     "start:script": "node scripts/start.js",
     "start": "npm-run-all -p css:watch start:script",
     "build:script": "node scripts/build.js",
@@ -108,17 +114,27 @@
     "test": "npm run test:script",
     "publish": "gh-pages -b master -d build",
     "analyze": "source-map-explorer build/static/js/main.*",
-    "format": "prettier --write '**/*.{js,jsx,scss,css}'",
-    "security": "nsp check"
+    "format": "prettier --ignore-path ./config/.prettierignore --config ./config/.prettierrc --write '**/*.{js,jsx,scss,css}'",
+    "security": "nsp check",
+    "storybook": "start-storybook -p 9001 -c ./config/.storybook",
+    "storybook:build": "build-storybook"
   },
   "babel": {
-    "presets": ["./config/babelrc.js"]
+    "presets": [
+      "./config/babelrc.js"
+    ]
   },
   "eslintConfig": {
     "extends": "./config/eslintrc.js"
   },
+  "stylelint": {
+    "extends": "./config/.stylelintrc.json"
+  },
   "lint-staged": {
-    "src/**/*.{js,jsx,json,scss,css}": ["npm run format", "git add"]
+    "src/**/*.{js,jsx,json,scss,css}": [
+      "npm run format",
+      "git add"
+    ]
   },
   "repository": {
     "type": "git",

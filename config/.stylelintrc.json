@@ -1,0 +1,45 @@
+{
+  "plugins": [
+    "stylelint-scss"
+  ],
+  "extends": [
+    "stylelint-config-standard",
+    "stylelint-config-sass-guidelines"
+  ],
+  "rules": {
+    "scss/at-import-partial-extension-blacklist": ["sass"],
+    "font-family-name-quotes": "always-unless-keyword",
+    "function-url-quotes": "always",
+    "selector-attribute-quotes": "always",
+    "string-quotes": "double",
+    "at-rule-no-vendor-prefix": true,
+    "media-feature-name-no-vendor-prefix": true,
+    "property-no-vendor-prefix": true,
+    "selector-no-vendor-prefix": true,
+    "value-no-vendor-prefix": true,
+    "max-nesting-depth": 2,
+    "selector-max-compound-selectors": 3,
+    "selector-max-specificity": "0,2,0",
+    "color-named": "always-where-possible",
+    "declaration-no-important": true,
+    "declaration-property-unit-blacklist": {
+      "font-size": ["em", "px"],
+      "/^animation/": ["ms"]
+    },
+    "declaration-property-unit-whitelist": {
+      "font-size": ["rem"],
+      "/^animation/": ["s"],
+      "line-height": []
+    },
+    "function-url-scheme-blacklist": ["ftp", "/^http/"],
+    "function-url-scheme-whitelist": ["data"],
+    "selector-max-combinators": 2,
+    "selector-max-id": 2,
+    "selector-max-type": 2,
+    "selector-max-universal": 2,
+    "unit-blacklist": ["em"],
+    "font-weight-notation": "named-where-possible",
+    "function-url-no-scheme-relative": true,
+    "max-line-length": 80
+  }
+}
