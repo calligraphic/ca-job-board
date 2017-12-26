@@ -1,42 +1,30 @@
 /** @format */
-
 import React from 'react';
 
 // Storybook imports
-import { storiesOf } from '@storybook/react';
+import { setAddon, storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { linkTo } from '@storybook/addon-links';
 import { withKnobs, text } from '@storybook/addon-knobs';
 import { WithNotes } from '@storybook/addon-notes';
 import { withInfo } from '@storybook/addon-info';
+import { withDocs } from 'storybook-readme';
+import { host } from 'storybook-host';
 
 // Component import
 import JobPosting from './JobPosting';
-
-const stories = storiesOf('Job Listings', module);
-
-// Add the `withKnobs` decorator to add knobs support to these stories.
-stories.addDecorator(withKnobs);
-
-const jobPostingPanelInfo = `
-  description or documentation about my component, supports markdown
-
-  ~~~js
-  <Button>Click Here</Button>
-  ~~~
-
-`;
+import jobPostingReadme from './JobPosting.README.md';
 
 const jobPostingPanelNotes = `
   Sample notes text for a job posting panel. Doesn&apos;t it look nice?
 `;
 
-stories.add(
-  'Job Posting Panel',
-  withInfo({
-    text: jobPostingPanelInfo,
-    propTablesExclude: ['WithNotes']
-  })(() => (
+const jobPostingPanelInfo = `
+  withInfo text, we're using info for prop tables
+`;
+
+const jobPostingPanelRenderer = () => {
+  return (
     <WithNotes notes={jobPostingPanelNotes}>
       <JobPosting
         title={text('Title', 'Manager')}
@@ -46,5 +34,13 @@ stories.add(
         )}
       />
     </WithNotes>
-  ))
-);
+  );
+};
+
+storiesOf('Job Listings', module)
+  .addDecorator(withKnobs)
+  .addDecorator(withDocs(jobPostingReadme))
+  .add(
+    'Job Posting Panel',
+    withInfo(jobPostingPanelInfo)(jobPostingPanelRenderer)
+  );

@@ -98,6 +98,7 @@
     "prettier": "^1.9.2",
     "raw-loader": "^0.5.1",
     "react-test-renderer": "^16.2.0",
+    "storybook-host": "^4.1.4",
     "storybook-readme": "^3.1.1",
     "stylelint": "^8.4.0",
     "stylelint-config-sass-guidelines": "^4.0.1",

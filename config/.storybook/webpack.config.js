@@ -5,8 +5,12 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.scss$/,
-        loaders: ["style-loader", "css-loader", "sass-loader"],
+        test: /\.(css|scss)$/,
+        loaders: [
+          "style-loader",
+          "css-loader",
+          "sass-loader"
+        ],
         include: path.resolve(__dirname, '../../')
       },
       // For Storybook addon-readme

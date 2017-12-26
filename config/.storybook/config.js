@@ -1,6 +1,13 @@
 import * as storybook from '@storybook/react';
 import { setDefaults } from '@storybook/addon-info';
 import { setOptions } from '@storybook/addon-options';
+import { withDocs } from 'storybook-readme';
+
+// Local imports
+//import addonInfoStylesheet from './addonInfoStylesheet'
+import DocsFooterReadme from '../../src/stories/DOCS_FOOTER.md';
+
+withDocs.addFooter(DocsFooterReadme);
 
 // addon-info
 setDefaults({
