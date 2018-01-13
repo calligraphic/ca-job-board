@@ -1,6 +1,6 @@
 import { baseFonts } from '@storybook/components';
 
-export default addonInfoStylesheet = {
+const addonInfoStylesheet = {
   button: {
     base: {
       fontFamily: 'sans-serif',
@@ -84,3 +84,5 @@ export default addonInfoStylesheet = {
     margin: '20px 0 0 0',
   },
 };
+
+export default addonInfoStylesheet;

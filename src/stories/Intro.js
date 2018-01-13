@@ -1,5 +1,10 @@
-/** @format */
-
+/** @format
+ * Introduction Story for Storybook, loaded by index.js in ./src/stories
+ *
+ * @since 0.0.1
+ * @module config/.storybook/config
+ * @see module:storybook
+ */
 import React from 'react';
 
 const styles = {

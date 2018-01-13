@@ -9,6 +9,29 @@
     "orm",
     "redux-orm"
   ],
+  "scripts": {
+    "precommit": "lint-staged",
+    "css:lint": "stylelint '**/*.scss'; exit 0",
+    "css:build": "node-sass-chokidar --include-path ./src/styles/ src/ -o public",
+    "css:watch": "npm run css:build && node-sass-chokidar --include-path ./src/styles/ src/ -o public --watch --recursive",
+    "start:script": "node scripts/start.js",
+    "start": "npm-run-all -p css:watch start:script",
+    "build:script": "node scripts/build.js",
+    "build": "npm-run-all css:build build:script",
+    "test:script": "node scripts/test.js --env=jsdom",
+    "test:flow": "flow",
+    "test:coverage": "npm run test:script --coverage",
+    "test:debug": "npm run test:script --inspect-brk test --runInBand",
+    "pretest": "npm run css:lint",
+    "posttest": "npm run format",
+    "test": "npm run test:script",
+    "publish": "gh-pages -b master -d build",
+    "analyze": "source-map-explorer build/static/js/main.*",
+    "format": "prettier --ignore-path ./config/.prettierignore --config ./config/.prettierrc --write '**/*.{js,jsx,scss,css}'",
+    "security": "nsp check",
+    "storybook": "start-storybook -p 9001 -s ./public -c ./config/.storybook",
+    "storybook:build": "build-storybook -c ./config/.storybook -o ./docs"
+  },
   "dependencies": {
     "autoprefixer": "7.1.6",
     "babel-core": "6.26.0",
@@ -80,7 +103,9 @@
     "whatwg-fetch": "2.0.3"
   },
   "devDependencies": {
+    "@sambego/storybook-state": "^1.0.6",
     "@storybook/addon-actions": "^3.2.19",
+    "@storybook/addon-backgrounds": "^3.2.19",
     "@storybook/addon-info": "^3.2.19",
     "@storybook/addon-knobs": "^3.2.19",
     "@storybook/addon-links": "^3.2.19",
@@ -105,29 +130,6 @@
     "stylelint-config-standard": "^18.0.0",
     "stylelint-order": "^0.8.0",
     "stylelint-scss": "^2.2.0"
-  },
-  "scripts": {
-    "precommit": "lint-staged",
-    "css:lint": "stylelint '**/*.scss'; exit 0",
-    "css:build": "node-sass-chokidar --include-path ./src/styles/ src/ -o public",
-    "css:watch": "npm run css:build && node-sass-chokidar --include-path ./src/styles/ src/ -o public --watch --recursive",
-    "start:script": "node scripts/start.js",
-    "start": "npm-run-all -p css:watch start:script",
-    "build:script": "node scripts/build.js",
-    "build": "npm-run-all css:build build:script",
-    "test:script": "node scripts/test.js --env=jsdom",
-    "test:flow": "flow",
-    "test:coverage": "npm run test:script --coverage",
-    "test:debug": "npm run test:script --inspect-brk test --runInBand",
-    "pretest": "npm run css:lint",
-    "posttest": "npm run format",
-    "test": "npm run test:script",
-    "publish": "gh-pages -b master -d build",
-    "analyze": "source-map-explorer build/static/js/main.*",
-    "format": "prettier --ignore-path ./config/.prettierignore --config ./config/.prettierrc --write '**/*.{js,jsx,scss,css}'",
-    "security": "nsp check",
-    "storybook": "start-storybook -p 9001 -c ./config/.storybook",
-    "storybook:build": "build-storybook -c ./config/.storybook -o ./docs"
   },
   "babel": {
     "presets": [
