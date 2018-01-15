@@ -1,6 +1,12 @@
 'use strict';
 
 const plugins = [
+  // Remove React propTypes from production code
+  /* require.resolve('transform-react-remove-prop-types), {
+    "mode": "wrap",
+    "ignoreFilenames": ["node_modules"]
+  }), */
+
   // class { handleClick = () => { } }
   require.resolve('babel-plugin-transform-class-properties'),
 

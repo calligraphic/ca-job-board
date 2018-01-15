@@ -1,0 +1,1 @@
+**See Transactions Item View for details.**

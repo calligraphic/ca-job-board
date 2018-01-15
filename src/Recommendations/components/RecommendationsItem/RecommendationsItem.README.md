@@ -1,0 +1,1 @@
+Idea to let former employers write recommendation letters for employees,maybe ability to pull them in from linkedin or facebook or something by the job seeker.

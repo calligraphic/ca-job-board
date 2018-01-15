@@ -8,5 +8,7 @@
  */
 import '@storybook/addon-notes/register';
 import '@storybook/addon-knobs/register';
-import '@storybook/addon-options/register';
 import '@storybook/addon-actions/register';
+
+// Addons that don't create panels
+import '@storybook/addon-options/register';

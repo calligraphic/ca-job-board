@@ -4,7 +4,7 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import JobPosting from './ErrorBoundary';
+import ErrorBoundary from './ErrorBoundary';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');

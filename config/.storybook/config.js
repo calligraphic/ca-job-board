@@ -5,22 +5,18 @@
  * @module config/.storybook/config
  * @see module:storybook
  */
-import * as storybook from '@storybook/react';
+import { configure, addDecorator } from '@storybook/react';
 
-// Storybook add-on imports
-import { setDefaults } from '@storybook/addon-info';
-import { setOptions } from '@storybook/addon-options';
-import { withDocs } from 'storybook-readme';
-
-// Local imports
-import addonInfoStylesheet from './addonInfoStylesheet'
-import DocsFooterReadme from '../../src/stories/DOCS_FOOTER.md';
+// Local includes
+import infoConfig from './addonConfig/infoConfig';
+import optionsConfig from './addonConfig/optionsConfig';
+import chaptersConfig from './addonConfig/chaptersConfig';
 
 /**
- * @description Add global decorators here
+ * Add a global decorator
+ *
  * @since 0.0.1
  */
-
 /*
 addDecorator(story => (
   <div style={{textAlign: 'center'}}>
@@ -29,70 +25,28 @@ addDecorator(story => (
 ));
 */
 
-/**
- * @description
- * @since 0.0.1
- */
-withDocs.addFooter(DocsFooterReadme);
+// Configure Chapters Addon for use
+chaptersConfig();
 
-/**
- * @description
- * @since 0.0.1
- */
-setDefaults({
-  header: false, // Toggles display of header with component name and description
-  inline: true, // Displays info inline vs click button to view
-  source: false, // Displays the source of story Component
-});
+// Set configuration object for Info addon
+infoConfig();
 
-/**
- * @description Defaults for addon @storybook/addon-options
- * @since 0.0.1
- */
-setOptions({
-  /**
-   * name to display in the top left corner
-   * @type {String}
-   */
-  name: 'CA Job Board',
-
-  /**
-   * URL for name in top left corner to link to
-   * @type {String}
-   */
-  url: 'https://github.com/calligraphic/ca-job-board/settings',
-
-   /**
-   * sorts stories
-   * @type {Boolean}
-   */
-  sortStoriesByKind: true,
-
-  /**
-   * regex for finding the hierarchy separator when organizing stories in a
-   * nested structure, e.g. storiesOf('My App/Buttons/Simple', module)
-   *
-   * @example:
-   *   null - turn off hierarchy
-   *   /\// - split by `/`
-   *   /\./ - split by `.`
-   *   /\/|\./ - split by `/` or `.`
-   * @type {Regex}
-   */
-  hierarchySeparator: null,
-});
+// Set configuration object for Options addon
+optionsConfig();
 
 /**
  * @description Configure
  * @since 0.0.1
  */
-storybook.configure(
+configure(
   () => {
     // Load our "Intro" story, won't pattern match against custom context below
-    require('../../src/stories');
+    require('../../src/stories/Intro');
 
-    // Dynamically load stories from source directory with Webpack custom context
-    // require.context(directory, useSubdirectories = false, regExp = /^\.\//)
+    // Dynamically load stories from source directory with Webpack custom context:
+    //
+    //   require.context(directory, useSubdirectories = false, regExp = /^\.\//)
+    //
     // React Native packager resolves all the imports at build-time, so use
     //  react-native-storybook-loader to create import statements for all stories
     const req = require.context('../../src', true, /.stories.js$/);
