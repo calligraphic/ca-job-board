@@ -1,4 +1,5 @@
-Maybe call "Job Packs" instead of "Credits"?
+Maybe call "Job Packs" instead of "Credits"
+
 
 Should be able to add Credits that are specific to an employer or group of employers, so that it's possible to give special pricing at the account level. Same with Subscriptions.
 

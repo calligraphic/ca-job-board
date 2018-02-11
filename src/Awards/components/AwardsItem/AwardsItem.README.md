@@ -12,7 +12,8 @@ Provides a uniform way to display action goals across different pages. Can be us
 
 ##### Email Integration
 
-Should be able to configure awards to contact user via email for events. For example, to send an email after a job user applies to a job posting:  "Congratulations on applying - Now do you want to make sure you get the interview?".
+Should be able to configure awards to contact user via email for events. For example, to send an email after a job user applies to a job posting:  "Congratulations on applying - Now do you want to make sure you get the interview
+".
 
 ##### Employer Bounty
 

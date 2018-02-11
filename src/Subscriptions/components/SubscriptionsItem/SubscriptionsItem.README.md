@@ -22,10 +22,18 @@ Specs mention custom pricing for different types of jobs. This might be best han
 - When they do, they get certain benefits:
   - 1 free upgrade to premium per 20 jobs posted
   - Receives a discount of 33% to upgrade to premium jobs
-  - Premium company status??
+  - Premium company status
+
+
   - Enhanced Employer profile
-  - Discount for accessing resumes or whatever system we use for that??
-  - Discount on resume alerts??
-  - Connector recruiting tool??
+  - Discount for accessing resumes or whatever system we use for that
+
+
+  - Discount on resume alerts
+
+
+  - Connector recruiting tool
+
+
   - All jobs are the same rate - they don't get charged higher prices for executive postings, for example.
 - Employers can upgrade a job for $99.

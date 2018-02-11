@@ -21,7 +21,9 @@ Should automatically build a job page for cities when a job is posted in that ci
 
 - Jobs in that city
 - Employers who have historically posted jobs in that city
-- c. Networking opportunities, maybe?  Maybe list Insiders in that area?
+- c. Networking opportunities, maybe
+  Maybe list Insiders in that area
+
 - Press releases about acquisitions/etc in that area.
 
 Needs admin page to configure what RSS feeds to pull to populate "Press releases", news, and blog articles about a city.
@@ -34,7 +36,8 @@ Employer-defined tags to add to jobs, and show in a tag-cloud. Allows extension 
 
 To avoid long list of job categories, break up into **area** and **title**:
 
-*What business area does this job listing belong to?*
+*What business area does this job listing belong to
+*
 
 - Construction
 - Finance
@@ -46,7 +49,8 @@ To avoid long list of job categories, break up into **area** and **title**:
 - Support (IT, Tax Compliance, etc.)
 - Other
 
-*Which of our internal job titles best describes this position (for applicants using the search feature)?*
+*Which of our internal job titles best describes this position (for applicants using the search feature)
+*
 
 - Leasing Associate
 - Leasing Consultant
@@ -55,7 +59,8 @@ To avoid long list of job categories, break up into **area** and **title**:
 - Senior Leasing Associate
 - Senior Leasing Consultant
 
-*Can you give a "headline" style description for the job you are listing to help interest applicants in your job (for example, "Fun Community Needs Leasing Professional")?*
+*Can you give a "headline" style description for the job you are listing to help interest applicants in your job (for example, "Fun Community Needs Leasing Professional")
+*
 
 ##### Existing Job Categories
 

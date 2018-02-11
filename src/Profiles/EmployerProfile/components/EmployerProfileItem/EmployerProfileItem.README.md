@@ -41,7 +41,8 @@ Need different roles within an Employer, to control access to job postings. Acce
 
 **Signup Scenario 3:**  Head of HR signs up second/later:  The company profile is already there, but now they need to get control of it.  
 
-**Signup Scenario 4:**  Property Manager signs up second/later:  So they company profile is already there, and either a rightful controller of the company profile is in charge, or it is another property manager.  How do they get approved to join the company without ruining the flow and timing?  (I.e., if they have to wait to get approved, they may never come back to post their job.)
+**Signup Scenario 4:**  Property Manager signs up second/later:  So they company profile is already there, and either a rightful controller of the company profile is in charge, or it is another property manager.  How do they get approved to join the company without ruining the flow and timing
+  (I.e., if they have to wait to get approved, they may never come back to post their job.)
 
 **Signup Scenario 5:**  Property Manager signs up later, but with different company:  So let's say that a property manager signs up later on, but instead of trying to get added to the existing company, they end up accidentally creating their own company.  So now we have "XYZ Management" and "XYZ Management, LLC". 
 
@@ -68,7 +69,8 @@ Significant is the "targeted job advertising", this would be PPC advertising via
 Features of a premium profile from the spec:
 
 - Way to upload videos for employee testimonials, videos about how great it is to work at the company, etc.
-- Pictures (basic profile includes also, but limited?)
+- Pictures (basic profile includes also, but limited
+)
 - Awards received by the company
 - Templates for different look - custom color scheme
 - External URL - site using custom URL that employers can share as their online home for careers.

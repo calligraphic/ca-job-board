@@ -1,6 +1,7 @@
 SmartJobBoard has backfilling from “job aggregators”:
 
-“Who would waste his time posting a listing on an empty job site? Smartjobboard offers free integrations with such job aggregators as Indeed, ZipRecruiters and Jobs2Careers. So, your job board will always be full of new jobs. And you’ll get a revenue share every time someone clicks those jobs.”
+“Who would waste his time posting a listing on an empty job site
+ Smartjobboard offers free integrations with such job aggregators as Indeed, ZipRecruiters and Jobs2Careers. So, your job board will always be full of new jobs. And you’ll get a revenue share every time someone clicks those jobs.”
 
 And Job8 integration:
 

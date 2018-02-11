@@ -14,4 +14,5 @@ Should have privacy settings to control anywhere user’s location is shown, and
 
 There’s a geocode microformat, for semantic markup of latitude/longitude data.
 
-MySQL has a geo field type and functions, similar to PostgreGIS functionality. Jomsocial’s obviously storing geolocation data, but probably not in a GIS-specific field data type? MySQL on Brent’s server is 5.5.
+MySQL has a geo field type and functions, similar to PostgreGIS functionality. Jomsocial’s obviously storing geolocation data, but probably not in a GIS-specific field data type
+ MySQL on Brent’s server is 5.5.
