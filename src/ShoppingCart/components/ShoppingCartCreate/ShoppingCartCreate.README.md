@@ -1,0 +1,1 @@
+**See Shopping Cart Item View for details.**

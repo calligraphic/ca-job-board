@@ -1,49 +1,54 @@
-import * as storybook from '@storybook/react';
-import { setDefaults } from '@storybook/addon-info';
-import { setOptions } from '@storybook/addon-options';
+/**
+ * Tell Storybook where to find stories and configure add-ons.
+ *
+ * @since 0.0.1
+ * @module config/.storybook/config
+ * @see module:storybook
+ */
+import { configure, addDecorator } from '@storybook/react';
 
-// addon-info
-setDefaults({
-  header: false, // Toggles display of header with component name and description
-  inline: true, // Displays info inline vs click button to view
-  source: false, // Displays the source of story Component
-});
+// Local includes
+import infoConfig from './addonConfig/infoConfig';
+import optionsConfig from './addonConfig/optionsConfig';
+import chaptersConfig from './addonConfig/chaptersConfig';
 
-// addon-option defaults:
-setOptions({
-  /**
-   * name to display in the top left corner
-   * @type {String}
-   */
-  name: 'CA Job Board',
-  /**
-   * URL for name in top left corner to link to
-   * @type {String}
-   */
-  url: 'https://github.com/calligraphic/ca-job-board/settings',
-   /**
-   * sorts stories
-   * @type {Boolean}
-   */
-  sortStoriesByKind: true,
-  /**
-   * regex for finding the hierarchy separator
-   * @example:
-   *   null - turn off hierarchy
-   *   /\// - split by `/`
-   *   /\./ - split by `.`
-   *   /\/|\./ - split by `/` or `.`
-   * @type {Regex}
-   */
-  hierarchySeparator: null,
-});
+/**
+ * Add a global decorator
+ *
+ * @since 0.0.1
+ */
+/*
+addDecorator(story => (
+  <div style={{textAlign: 'center'}}>
+    {story()}
+  </div>
+));
+*/
 
-storybook.configure(
+// Configure Chapters Addon for use
+chaptersConfig();
+
+// Set configuration object for Info addon
+infoConfig();
+
+// Set configuration object for Options addon
+optionsConfig();
+
+/**
+ * @description Configure
+ * @since 0.0.1
+ */
+configure(
   () => {
-    // Load our "Intro" story
-    require('../../src/stories');
+    // Load our "Intro" story, won't pattern match against custom context below
+    require('../../src/stories/Intro');
 
-    // Dynamically load stories from source directory
+    // Dynamically load stories from source directory with Webpack custom context:
+    //
+    //   require.context(directory, useSubdirectories = false, regExp = /^\.\//)
+    //
+    // React Native packager resolves all the imports at build-time, so use
+    //  react-native-storybook-loader to create import statements for all stories
     const req = require.context('../../src', true, /.stories.js$/);
     req.keys().forEach((filename) => req(filename));
   },

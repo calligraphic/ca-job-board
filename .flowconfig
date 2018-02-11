@@ -1,8 +1,16 @@
 [ignore]
 .*/build/.*
-.*/coverage/.*
+.*/public/.*
+.*/config/.*
+.*/docs/.*
+.*/.coverage/.*
+.*/.git/.*
+.*/.github/.*
+.*/.publish/.*
 
 [include]
+./src/**
+./scripts/**
 
 [libs]
 ./lib/flow

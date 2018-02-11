@@ -1,0 +1,1 @@
+Create and assign tasks to team members, in addition to the automatic notification process that can assign tasks to users. Should have option for periodic email reminders to team members of pending tasks, and analytics view to see outstanding tasks across candidates or positions;

@@ -1,0 +1,12 @@
+/**
+ * @format
+ *
+ * Overrides for Storybook formatting
+ *
+ */
+
+/* !important only way to override inline styles */
+body {
+  margin: 5px !important;
+  padding: 5px !important;
+}

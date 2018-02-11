@@ -1,0 +1,1 @@
+Using automated credit screening services require a Fair Credit Reporting Act notice.

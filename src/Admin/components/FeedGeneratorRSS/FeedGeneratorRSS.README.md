@@ -1,0 +1,1 @@
+This is the functionality to create RSS feeds for 3rd-parties, like Indeed
