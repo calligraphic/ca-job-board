@@ -12,6 +12,9 @@ const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
 const getClientEnvironment = require('./env');
 const paths = require('./paths');
 
+// Object of babel-plugin-module-resolver aliases
+const namespace = require('./namespace');
+
 // Webpack uses `publicPath` to determine where the app is being served from.
 // In development, we always serve from the root. This makes config easier.
 const publicPath = '/';
@@ -129,7 +132,6 @@ module.exports = {
             options: {
               formatter: eslintFormatter,
               eslintPath: require.resolve('eslint'),
-
             },
             loader: require.resolve('eslint-loader'),
           },
@@ -166,14 +168,24 @@ module.exports = {
             test: /\.(js|jsx|mjs)$/,
             include: paths.appSrc,
             loader: require.resolve('babel-loader'),
-            options: {
-
+            options: { // shortuct to Rule.use: [ { options } ]
+              // Resolve includes and requires without relative pathnames
+              plugins: [
+                [
+                  require('babel-plugin-module-resolver'),
+                  {
+                    'root': ['./src'],
+                    'alias': namespace,
+                    },
+                  },
+                ]
+              ],
               // This is a feature of `babel-loader` for webpack (not Babel itself).
               // It enables caching results in ./node_modules/.cache/babel-loader/
               // directory for faster rebuilds.
               cacheDirectory: true,
             },
-          },
+           },
           // "postcss" loader applies autoprefixer to our CSS.
           // "css" loader resolves paths in CSS and adds assets as dependencies.
           // "style" loader turns CSS into JS modules that inject <style> tags.

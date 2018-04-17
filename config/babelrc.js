@@ -1,16 +1,10 @@
 'use strict';
 
-const plugins = [
-  // Remove React propTypes from production code
-  /* require.resolve('transform-react-remove-prop-types), {
-    "mode": "wrap",
-    "ignoreFilenames": ["node_modules"]
-  }), */
-
-  // class { handleClick = () => { } }
+const commonPlugins = [
+  // Transform class { handleClick = () => { } }
   require.resolve('babel-plugin-transform-class-properties'),
 
-  // { ...todo, completed: true }
+  // Transform { ...todo, completed: true }
   [
     require.resolve('babel-plugin-transform-object-rest-spread'),
     {
@@ -38,14 +32,15 @@ const plugins = [
 ];
 
 var env = process.env.BABEL_ENV || process.env.NODE_ENV;
+
 if (env !== 'development' && env !== 'test' && env !== 'production') {
-  throw new Error(
-    'Using `ca-job-board` requires that you specify `NODE_ENV` or ' +
-      '`BABEL_ENV` environment variables. Valid values are "development", ' +
-      '"test", and "production". Instead, received: ' +
-      JSON.stringify(env) +
-      '.'
-  );
+  const noEnvMssg = `
+      Using ca-job-board requires that you specify NODE_ENV or
+      BABEL_ENV environment variables. Valid values are "development",
+      "test", and "production". Instead, received: ${JSON.stringify(env)}.
+    `
+
+  throw new Error(noEnvMssg);
 }
 
 if (env === 'development' || env === 'test') {
@@ -55,7 +50,7 @@ if (env === 'development' || env === 'test') {
   // https://github.com/babel/babel/issues/4702
   // https://github.com/babel/babel/pull/3540#issuecomment-228673661
   // https://github.com/facebookincubator/create-react-app/issues/989
-  plugins.push.apply(plugins, [
+  commonPlugins.push.apply(commonPlugins, [
     // Adds component stack to warning messages
     require.resolve('babel-plugin-transform-react-jsx-source'),
     // Adds __self attribute to JSX which React will use for some warnings
@@ -82,12 +77,12 @@ if (env === 'test') {
       // JSX, Flow
       require.resolve('babel-preset-react'),
     ],
-    plugins: plugins.concat([
+    plugins: commonPlugins.concat([
       // Compiles import() to a deferred require()
       require.resolve('babel-plugin-dynamic-import-node'),
     ]),
   };
-} else {
+} else if (env === 'development' || env === 'production') {
   module.exports = {
     presets: [
       // Latest stable ECMAScript features
@@ -111,7 +106,7 @@ if (env === 'test') {
       require.resolve('babel-preset-react'),
     ],
 
-    plugins: plugins.concat([
+    plugins: commonPlugins.concat([
       // function* () { yield 42; yield 43; }
       [
         require.resolve('babel-plugin-transform-regenerator'),
@@ -137,19 +132,25 @@ if (env === 'test') {
       ],
       */
 
-      // Ho
-
       // Adds syntax support for import()
       require.resolve('babel-plugin-syntax-dynamic-import'),
     ]),
   };
+}
 
-  if (env === 'production') {
-    // Optimization: hoist JSX that never changes out of render()
-    // Disabled because of issues: https://github.com/facebookincubator/create-react-app/issues/553
-    // TODO: Enable again when these issues are resolved.
-    // plugins.push.apply(plugins, [
-    //   require.resolve('babel-plugin-transform-react-constant-elements')
-    // ]);
-  }
+if (env === 'production') {
+  // Optimization: hoist JSX that never changes out of render()
+  // Disabled because of issues: https://github.com/facebookincubator/create-react-app/issues/553
+  // TODO: Enable again when these issues are resolved.
+  // commonPlugins.push.apply(commonPlugins, [
+  //   require.resolve('babel-plugin-transform-react-constant-elements')
+  // ]);
+
+  // Remove React propTypes from production code
+  // commonPlugins.push.apply(commonPlugins, [
+  //   require.resolve('transform-react-remove-prop-types), {
+  //     "mode": "wrap",
+  //     "ignoreFilenames": ["node_modules"]
+  //   }),
+  // ]);
 }

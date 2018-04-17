@@ -9,20 +9,61 @@
 const autoprefixer  = require('autoprefixer');
 const path = require('path');
 
-const babelLoaderConfig  = require('@storybook/react/dist/server/config/babel');
 const utils = require('@storybook/react/dist/server/config/utils');
+
+// Object of babel-plugin-module-resolver aliases
+const namespace = require('../namespace');
 
 module.exports = (storybookBaseConfig, env) => {
   // env value of 'PRODUCTION' is used when building a static storybook.
   const newConfig = Object.assign({}, storybookBaseConfig);
 
   newConfig.module.rules = [
-     {
+    {
       test: /\.jsx?$/,
-      loader: require.resolve('babel-loader'),
-      query: babelLoaderConfig,
       include: utils.includePaths,
       exclude: utils.excludePaths,
+      use: {
+        loader: require.resolve('babel-loader'),
+        options: {
+          // Don't try to find .babelrc because we want to force this configuration.
+          babelrc: false,
+          presets: [
+            [
+              require.resolve('babel-preset-env'),
+              {
+                targets: {
+                  browsers: ['last 2 versions', 'safari >= 7'],
+                },
+                modules: process.env.NODE_ENV === 'test' ? 'commonjs' : false,
+              },
+            ],
+            require.resolve('babel-preset-stage-0'),
+            require.resolve('babel-preset-react'),
+          ],
+          plugins: [
+            [
+              require.resolve('babel-plugin-transform-regenerator'),
+            ],
+            [
+              require.resolve('babel-plugin-transform-runtime'),
+              {
+                helpers: true,
+                polyfill: true,
+                regenerator: true,
+              },
+            ],
+            [
+              // Compile includes and requires without using relative pathnames in source
+              require('babel-plugin-module-resolver'),
+              {
+                'root': ['./src'],
+                'alias': namespace,
+              },
+            ],
+          ],
+        },
+      },
     },
     {
       test: /\.(css|scss)$/,
