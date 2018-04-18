@@ -17,20 +17,26 @@ const pmDocument = {
     type: 'paragraph',
     content: [{
       type: 'text',
-      text: 'Lets add a link to '
+      text: 'Lets add a link to ',
     }, {
       type: 'text',
       text: 'my website',
       marks: [{
         type: 'link',
         href: 'https://espen.codes/',
-        title: 'Espen.Codes (personal website)'
+        title: 'Espen.Codes (personal website)',
       }]
     }, {
       type: 'text',
-      text: ' for fun an profit.'
-    }]
-  }]
+      text: ' for fun and learning.',
+    }],
+  }, {
+    type: 'code_block',
+    content: [{
+      type: 'text',
+      text: 'some code',
+    }],
+  }],
 };
 
 class JobPostingItem extends PureComponent {
@@ -40,12 +46,12 @@ class JobPostingItem extends PureComponent {
     );
   }
 }
-
+/*
 JobPostingItem.propTypes = {
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired
 };
-
+*/
 // Keep Storybook from losing reference to component name on static compile
 JobPostingItem.displayName = 'JobPostingItem';
 
