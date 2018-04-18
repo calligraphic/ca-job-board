@@ -3,9 +3,8 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 
 // Storybook Addon imports
-import { State, Store } from '@sambego/storybook-state';
 import { action } from '@storybook/addon-actions'; // eslint-disable-line no-unused-vars
-import { withKnobs, text } from '@storybook/addon-knobs';
+import { withKnobs } from '@storybook/addon-knobs';
 import { withNotes } from '@storybook/addon-notes';
 
 // Webpack doesn't like dynamic imports, so adjust path here manually

@@ -6,7 +6,6 @@
  * @module config/.storybook/config
  * @see module:storybook
  */
-import React from 'react';
 import { storiesOf } from '@storybook/react';
 
 import introReadme from './Intro.README.md';

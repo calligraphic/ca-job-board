@@ -13,6 +13,9 @@ const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
 const paths = require('./paths');
 const getClientEnvironment = require('./env');
 
+// Object of babel-plugin-module-resolver aliases
+const namespace = require('./namespace');
+
 // Webpack uses `publicPath` to determine where the app is being served from.
 // It requires a trailing slash, or the file assets will get an incorrect path.
 const publicPath = paths.servedPath;
@@ -101,7 +104,7 @@ module.exports = {
     // for React Native Web.
     extensions: ['.web.js', '.mjs', '.js', '.json', '.web.jsx', '.jsx'],
     alias: {
-      
+
       // Support React Native Web
       // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
       'react-native': 'react-native-web',
@@ -128,11 +131,11 @@ module.exports = {
         test: /\.(js|jsx|mjs)$/,
         enforce: 'pre',
         use: [
+          // apply multiple loaders and options
           {
             options: {
               formatter: eslintFormatter,
               eslintPath: require.resolve('eslint'),
-              
             },
             loader: require.resolve('eslint-loader'),
           },
@@ -168,8 +171,16 @@ module.exports = {
             test: /\.(js|jsx|mjs)$/,
             include: paths.appSrc,
             loader: require.resolve('babel-loader'),
-            options: {
-              
+            options: { // shortuct to Rule.use: [ { options } ]
+              // Resolve includes and requires without relative pathnames
+              plugins: [
+                [
+                  require('babel-plugin-module-resolver'), {
+                    'root': ['./src'],
+                    'alias': namespace,
+                  },
+                ],
+              ],
               compact: true,
             },
           },
@@ -318,7 +329,7 @@ module.exports = {
       },
       mangle: {
         safari10: true,
-      },        
+      },
       output: {
         comments: false,
         // Turned on because emoji and regex is not minified properly using default
@@ -378,7 +389,7 @@ module.exports = {
     // You can remove this if you don't use Moment.js:
     new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
   ],
-  
+
   // Some libraries import Node modules but don't use them in the browser.
   // Tell Webpack to provide empty mocks for them so importing them works.
   node: {
