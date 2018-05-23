@@ -9,19 +9,25 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import textHandler from './textHandler';
+import TextHandler from './TextHandler';
 import { assign } from 'lodash';
 
-// Block node
+/*
+* Create a React element for code blocks
+*/
 const CodeBlock = props => {
+  // Apply any marks to code block text
   var content = props.node.content.map(node => {
-    return textHandler(assign({}, props, { node: node }));
+    return TextHandler(assign({}, props, { node: node }));
   });
 
-  // React.createElement(component, props, ...children)
-  var code = React.createElement('code', null, content);
-
-  return React.createElement('pre', null, code);
+  return (
+    <pre>
+      <code>
+        {content}
+      </code>
+    </pre>
+  );
 };
 
 CodeBlock.propTypes = {

@@ -81,8 +81,6 @@ const mapTree = (node, options) => {
     );
   }
 
-  // The apply() method calls a function with a given this value,
-  // and arguments provided as an array (or an array-like object).
   // React.createElement(component, props, ...children)
   return React.createElement.apply(React, args);
 };

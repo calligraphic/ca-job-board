@@ -15,11 +15,11 @@
 *
 * @type {Object} markMap
 */
-var markMap = {
+var defaultMarkMap = {
   em: 'em',
   strong: 'strong',
   code: 'code',
   link: 'a'
 };
 
-export default markMap;
+export default defaultMarkMap;

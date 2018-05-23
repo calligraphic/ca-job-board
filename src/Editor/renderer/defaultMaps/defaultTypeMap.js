@@ -6,9 +6,9 @@
 * Distributed under terms and conditions of the GNU
 * General Public License, version 2.
 */
-import Document from './types/Document';
-import TextHandler from './types/TextTandler';
-import CodeBlock from './types/CodeBlock';
+import Document from '../types/Document';
+import TextHandler from '../types/TextHandler';
+import CodeBlock from '../types/CodeBlock';
 
 /*
 * Default type map object where the keys represent the types in a
@@ -17,7 +17,7 @@ import CodeBlock from './types/CodeBlock';
 *
 * @type {Object} typeMap
 */
-const typeMap = {
+const defaultTypeMap = {
     doc: Document,
     paragraph: 'p',
     image: 'img',
@@ -26,4 +26,4 @@ const typeMap = {
     text: TextHandler
 };
 
-export default typeMap;
+export default defaultTypeMap;
