@@ -15,5 +15,6 @@ script:
 branches:
   only:
     - master
+    - /^greenkeeper/.*$/
 after_success:
   - './node_modules/.bin/codecov --token=:d58fbc73-98c4-4b07-a64e-0d64e952ab38'
