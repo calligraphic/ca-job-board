@@ -1,3 +1,3 @@
 /** @format */
 
-// Container compnent for all score card views
+// Container component for all score card views

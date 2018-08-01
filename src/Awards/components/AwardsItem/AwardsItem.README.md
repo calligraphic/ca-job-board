@@ -1,3 +1,5 @@
+Similar to Alpha User Points
+
 The Awards module will need to make use of cut-points in other modules, to trigger awards on desired behavior. For this, an eventing system should be used. Modules with cut points to trigger on:
 
 - Register
@@ -19,6 +21,6 @@ Should be able to configure awards to contact user via email for events. For exa
 
 This is a feature of the Awards system, but is controlled by the Connector Program. It should allow employers to set a bounty on a job posting, and then for the employer to be able to control which connectors can see the bounty and push a notification to those connectors. Available only for Premium jobs.
 
-#####  
+#####
 
-#####  
+#####
