@@ -99,7 +99,7 @@
     "raf": "3.4.0",
     "react": "^16.2.0",
     "react-bootstrap": "^0.31.5",
-    "react-dev-utils": "^4.2.1",
+    "react-dev-utils": "^4.2.2",
     "react-dom": "^16.2.0",
     "react-html-parser": "^2.0.2",
     "react-prosemirror-document": "^4.0.0",
